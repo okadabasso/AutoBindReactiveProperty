@@ -56,7 +56,9 @@ namespace BlankApp1.ReactiveBinding
             var modeParameter = Expression.Constant(ReactivePropertyMode.Default);
             var ignoreValidationErrorValue = Expression.Constant(false);
 
-            foreach (var property in targetType.GetProperties().Where(p => p.GetCustomAttribute<AutoBindingPropertyAttribute>() != null))
+            var targetProperties = targetType.GetProperties()
+                .Where(p => p.GetCustomAttribute<AutoBindingPropertyAttribute>() != null);
+            foreach (var property in targetProperties)
             {
                 var sourceProperty = sourceType.GetProperty(property.Name);
                 var sourcePropertyAccessor = Expression.Property(
@@ -92,7 +94,9 @@ namespace BlankApp1.ReactiveBinding
             var modeParameter = Expression.Constant(ReactivePropertyMode.Default);
             var ignoreValidationErrorValue = Expression.Constant(false);
 
-            foreach (var property in targetType.GetProperties().Where(p => p.GetCustomAttribute<AutoBindingPropertyAttribute>() != null ))
+            var targetProperties = targetType.GetProperties()
+                .Where(p => p.GetCustomAttribute<AutoBindingPropertyAttribute>() != null);
+            foreach (var property in targetProperties)
             {
                 var sourceProperty = sourceType.GetProperty(property.Name);
                 var sourcePropertyAccessor = Expression.Property(
