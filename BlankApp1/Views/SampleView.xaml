@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="BlankApp1.Views.SampleView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:prism="http://prismlibrary.com/"             
+             prism:ViewModelLocator.AutoWireViewModel="True">
+    <Grid>
+        <StackPanel>
+            <TextBlock Text="test test"></TextBlock>
+            <TextBox Text="{Binding ItemViewModel.Id.Value}"></TextBox>
+            <TextBox Text="{Binding ItemViewModel.Name.Value }"></TextBox>
+            <TextBox Text="{Binding ItemViewModel.UpdateDateTime.Value }"></TextBox>
+            <TextBox Text="{Binding ItemViewModel.Flag.Value }"></TextBox>
+
+            <Button Command="{Binding SubmitCommand}" Content="送信"></Button>
+        </StackPanel>
+    </Grid>
+</UserControl>
